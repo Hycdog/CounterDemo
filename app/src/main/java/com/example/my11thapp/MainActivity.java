@@ -1,12 +1,19 @@
 package com.example.my11thapp;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,12 +27,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initCount = 0;
         mShowCount = (TextView) findViewById(R.id.text_count);
-    }
-
-    public void ShowToast(View view) {
-        Toast toast = Toast.makeText(this, R.string.str_toast,
-                Toast.LENGTH_SHORT);
-        toast.show();
+        Button btn_toast = findViewById(R.id.middle_button);
+        btn_toast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this,Main2Activity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
     }
 
     @SuppressLint("SetTextI18n")
@@ -42,4 +52,6 @@ public class MainActivity extends AppCompatActivity {
         if (mShowCount != null)
             mShowCount.setText(Integer.toString(initCount));
     }
+
+
 }
