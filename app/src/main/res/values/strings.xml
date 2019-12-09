@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">My11thApp</string>
+    <string name="str_toast">Hey!</string>
+    <string name="str_toast_button">Toast</string>
+    <string name="str_blankspace" />
+    <string name="str_minus">-</string>
+    <string name="str_plus">+</string>
+    <string name="count_value">0</string>
+</resources>
