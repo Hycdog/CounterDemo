@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initCount = 0;
-        mShowCount = (TextView) findViewById(R.id.HelloStr);
+        mShowCount = (TextView) findViewById(R.id.text_count);
     }
 
     public void ShowToast(View view) {
