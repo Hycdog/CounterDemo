@@ -4,14 +4,17 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.Random;
+import java.util.zip.Inflater;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -26,29 +29,24 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public int getBack() {
-        int result = 0;
+    public int getRandomColor() {
         Random random = new Random();
-        int[] RGB = random.ints(3,0,256).toArray();
-        for(int i:RGB){
-            result+=i;
-            result*=256;
-        }
-        return result;
+        int[] randomRGB= random.ints(3,0,256).toArray();
+        int result = Color.rgb(randomRGB[0],randomRGB[1],randomRGB[2]);
+        System.out.println(Integer.toHexString(result));
+        return Color.rgb(randomRGB[0],randomRGB[1],randomRGB[2]);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @SuppressLint("SetTextI18n")
     public void CreateDiary(View view){
         LinearLayout mHistory = (LinearLayout) findViewById(R.id.layout1);
-        TextView newtext = new TextView(this);
-        newtext.setHeight(200);
-        newtext.setText("abc");
-        newtext.setTextSize(12);
-        newtext.setBackgroundColor(getBack());
-        mHistory.addView(newtext);
+        LayoutInflater inflater = this.getLayoutInflater();
+        LinearLayout newdiary = (LinearLayout) inflater.inflate(R.layout.diary,null);
+        newdiary.setBackgroundColor(getRandomColor());
+        mHistory.addView(newdiary,0);
         ScrollView scroll = (ScrollView) findViewById(R.id.scroll1);
-        scroll.fullScroll(ScrollView.FOCUS_DOWN);
+        scroll.fullScroll(ScrollView.FOCUS_UP);
     }
 
 }
