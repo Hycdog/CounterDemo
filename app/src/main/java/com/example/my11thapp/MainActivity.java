@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initCount = 0;
-        mShowCount = (TextView) findViewById(R.id.text_count);
+        mShowCount = findViewById(R.id.text_count);
         Button btn_toast = findViewById(R.id.middle_button);
         btn_toast.setOnClickListener(new View.OnClickListener() {
             @Override

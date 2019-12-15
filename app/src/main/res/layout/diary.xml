@@ -4,15 +4,25 @@
     android:layout_height="wrap_content"
     android:orientation="vertical" >
 
-    <TextView
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="104dp"
-        android:text="@string/hello_word" />
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_input"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="submit" />
+        android:text="@string/submit"
+        />
+
+
 
 </LinearLayout>
